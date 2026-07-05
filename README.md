@@ -64,7 +64,11 @@ Early UI references:
 
 ### Feedback Widget
 
-![Feedy feedback widget](docs/assets/screenshots/widget.png)
+![Feedy feedback widget modal](docs/assets/screenshots/widget-empty.png)
+
+### Feedback Widget With Screenshot
+
+![Feedy feedback widget with screenshot](docs/assets/screenshots/widget.png)
 
 ### Screenshot Annotation
 
