@@ -24,6 +24,7 @@ npm run typecheck
 - `examples/api-adapter/src/index.ts`: framework-agnostic server boundary for real integrations.
 - `examples/ui-reference/src`: copyable widget, annotation, queue, detail, insights, and agent context UI.
 - `docs/recipes/next-shadcn.md`: recommended path for embedded Next.js/shadcn-style implementations.
+- `docs/recipes/widget-capture.md`: screenshot, annotation, payload, and admin-detail requirements.
 - `docs/storage.md`: storage configuration guidance.
 
 ## Current Scope

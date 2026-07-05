@@ -187,6 +187,8 @@ Tradeoff: highest-value context for agents, but it has more browser and storage 
 
 Agents should not replace the modal/evidence-oriented Feedy model with a thin custom form unless the user explicitly chooses the compact first-pass tradeoff.
 
+Use `docs/recipes/widget-capture.md` for the full screenshot capture, annotation hit-testing, compression, and validation requirements.
+
 Recommended first UI scope:
 
 - Floating feedback button or simple nav item.
@@ -258,6 +260,15 @@ Actions:
 - `onUpdate(id, UpdateFeedbackRequest)`
 - `onAddNote(CreateFeedbackNoteRequest)`
 - `onOpenAgentContext(id)`
+
+Required evidence sections:
+
+- original feedback text
+- screenshot preview when available
+- annotations and annotation notes
+- technical context
+- staff notes/comments
+- activity thread
 
 ### Agent Context
 

@@ -92,6 +92,7 @@ Start with:
 
 - `docs/quickstart.md`
 - `docs/recipes/next-shadcn.md`
+- `docs/recipes/widget-capture.md`
 - `docs/storage.md`
 - `CHANGELOG.md`
 - `packages/contracts/src/index.ts`
@@ -108,6 +109,7 @@ Start with:
 - `examples/api-adapter`: copyable server boundary for intake, queue, detail, triage, notes, and agent context.
 - `examples/ui-reference`: copyable UI surfaces for the widget, queue, detail, insights, and agent context.
 - `docs/recipes/next-shadcn.md`: embedded implementation path for existing Next.js apps using shadcn-style primitives.
+- `docs/recipes/widget-capture.md`: screenshot capture, annotation targeting, compression, validation, and admin evidence requirements.
 
 ## UI Reference
 

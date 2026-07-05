@@ -15,6 +15,8 @@ Feedy is early-stage, so this changelog tracks implementation-shape changes rath
 - Framework-agnostic API adapter example for intake, queue, detail, update, notes, and agent context.
 - Copyable UI reference for widget, annotation, queue, detail, insights, and agent context.
 - Next.js + shadcn-style integration recipe for embedded host-app implementations.
+- Widget capture and annotation recipe covering screenshot capture, hit testing, hover preview, payload compression, validation issue paths, and admin evidence display.
+- Contract helpers for sanitizing annotation labels and formatting Zod validation issue paths.
 - Public export script for publishing a curated subset of the private working repository.
 
 ### Clarified
@@ -24,3 +26,4 @@ Feedy is early-stage, so this changelog tracks implementation-shape changes rath
 - First-pass integrations can skip screenshots while preserving schema space for screenshots and annotations.
 - Feedy should use the host app's existing admin auth instead of owning authentication in embedded mode.
 - Widget implementations can choose compact panel, modal reference widget, or full evidence widget, but compact text-only panels should be treated as first-pass slices rather than the full Feedy interaction model.
+- Screenshot language should mean real bitmap capture and persistence. Annotation geometry alone should be described as page annotation or context.

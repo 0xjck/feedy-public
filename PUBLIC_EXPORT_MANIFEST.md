@@ -1,6 +1,6 @@
 # Feedy Public Export Manifest
 
-Generated: 2026-07-05T10:17:21.043Z
+Generated: 2026-07-05T14:00:52.497Z
 
 ## Files
 
@@ -17,6 +17,7 @@ Generated: 2026-07-05T10:17:21.043Z
 - docs/assets/screenshots/widget.png
 - docs/quickstart.md
 - docs/recipes/next-shadcn.md
+- docs/recipes/widget-capture.md
 - docs/specs/implementation-model.md
 - docs/storage.md
 - examples/api-adapter/README.md

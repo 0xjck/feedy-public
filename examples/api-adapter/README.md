@@ -37,6 +37,22 @@ Map these handlers to the host application's existing router:
 
 The included `MemoryFeedyStore` is for demos and tests. Production implementations should keep the same `FeedyStore` interface and back it with the Postgres schema in `packages/db/migrations`.
 
+## Validation Errors
+
+The handlers return structured validation issues for bad payloads:
+
+```ts
+{
+  error: "screenshot.dataUrl: String must contain at most 5500000 character(s)",
+  issues: [
+    { path: "screenshot.dataUrl", message: "String must contain at most 5500000 character(s)" }
+  ],
+  status: 400
+}
+```
+
+Surface the first issue path in the widget/admin UI. This makes capture bugs debuggable when a screenshot or DOM-derived annotation label is rejected.
+
 ## Example
 
 ```ts

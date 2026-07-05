@@ -1,5 +1,8 @@
 import { z } from "zod";
 
+export const FEEDY_ANNOTATION_LABEL_MAX_LENGTH = 120;
+export const FEEDY_SCREENSHOT_DATA_URL_MAX_LENGTH = 5_500_000;
+
 export const feedbackSourceSchema = z.enum(["platform", "website", "external"]);
 export const feedbackTypeSchema = z.enum(["bug", "idea", "question", "request", "general"]);
 export const feedbackStatusSchema = z.enum(["new", "backlog", "in_progress", "resolved", "dismissed"]);
@@ -48,13 +51,13 @@ export const feedbackAnnotationSchema = z.object({
   y: z.number().min(0).max(1),
   width: z.number().min(0).max(1).optional(),
   height: z.number().min(0).max(1).optional(),
-  label: z.string().min(1).max(240).optional(),
+  label: z.string().min(1).max(FEEDY_ANNOTATION_LABEL_MAX_LENGTH).optional(),
   note: z.string().min(1).max(1000).optional(),
 });
 
 export const screenshotSchema = z.object({
   storageMode: z.enum(["database", "object"]).optional(),
-  dataUrl: z.string().startsWith("data:image/").max(6_000_000).optional(),
+  dataUrl: z.string().startsWith("data:image/").max(FEEDY_SCREENSHOT_DATA_URL_MAX_LENGTH).optional(),
   objectKey: z.string().min(1).max(1024).optional(),
   url: z.string().url().max(4096).optional(),
 });
@@ -219,3 +222,30 @@ export type FeedbackActivity = z.infer<typeof feedbackActivitySchema>;
 export type CreateFeedbackNoteRequest = z.infer<typeof createFeedbackNoteRequestSchema>;
 export type FeedbackInsights = z.infer<typeof feedbackInsightsSchema>;
 export type AgentFeedbackContext = z.infer<typeof agentFeedbackContextSchema>;
+
+export function sanitizeFeedbackAnnotationLabel(
+  value: string | null | undefined,
+  options: { fallback?: string; maxLength?: number } = {},
+): string {
+  const fallback = options.fallback ?? "Selected element";
+  const maxLength = options.maxLength ?? FEEDY_ANNOTATION_LABEL_MAX_LENGTH;
+  const sanitized = (value ?? "").trim().replace(/\s+/g, " ");
+  return (sanitized || fallback).slice(0, maxLength);
+}
+
+export function formatZodIssuePath(path: Array<PropertyKey>): string {
+  return path.length ? path.map((part) => String(part)).join(".") : "root";
+}
+
+export function formatZodIssues(error: z.ZodError): Array<{ message: string; path: string }> {
+  return error.issues.map((issue) => ({
+    message: issue.message,
+    path: formatZodIssuePath(issue.path),
+  }));
+}
+
+export function firstZodIssueMessage(error: z.ZodError): string {
+  const [firstIssue] = formatZodIssues(error);
+  if (!firstIssue) return "Invalid input";
+  return `${firstIssue.path}: ${firstIssue.message}`;
+}

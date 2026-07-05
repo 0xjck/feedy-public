@@ -11,12 +11,14 @@ import {
   createFeedbackNoteRequestSchema,
   createFeedbackRequestSchema,
   feedbackListFiltersSchema,
+  firstZodIssueMessage,
+  formatZodIssues,
   updateFeedbackRequestSchema,
 } from "@feedy/contracts";
 
 export type ApiResult<TData> =
   | { data: TData; status: 200 | 201 }
-  | { error: string; status: 400 | 404 };
+  | { error: string; issues?: Array<{ message: string; path: string }>; status: 400 | 404 };
 
 export type FeedyStoreConfig = {
   appId: string;
@@ -197,7 +199,7 @@ export function createFeedyHandlers({ store }: { store: FeedyStore }) {
   return {
     async addFeedbackNote(input: unknown): Promise<ApiResult<FeedbackNote>> {
       const parsed = createFeedbackNoteRequestSchema.safeParse(input);
-      if (!parsed.success) return { error: parsed.error.message, status: 400 };
+      if (!parsed.success) return validationError(parsed.error);
       const note = await store.addNote(parsed.data);
       if (!note) return { error: "Feedback not found.", status: 404 };
       return { data: note, status: 201 };
@@ -205,7 +207,7 @@ export function createFeedyHandlers({ store }: { store: FeedyStore }) {
 
     async createFeedback(input: unknown): Promise<ApiResult<FeedbackDetail>> {
       const parsed = createFeedbackRequestSchema.safeParse(input);
-      if (!parsed.success) return { error: parsed.error.message, status: 400 };
+      if (!parsed.success) return validationError(parsed.error);
       return { data: await store.createFeedback(parsed.data), status: 201 };
     },
 
@@ -223,17 +225,25 @@ export function createFeedyHandlers({ store }: { store: FeedyStore }) {
 
     async listFeedback(input?: unknown): Promise<ApiResult<FeedbackListItem[]>> {
       const parsed = feedbackListFiltersSchema.safeParse(input ?? {});
-      if (!parsed.success) return { error: parsed.error.message, status: 400 };
+      if (!parsed.success) return validationError(parsed.error);
       return { data: await store.listFeedback(parsed.data), status: 200 };
     },
 
     async updateFeedback(id: string, input: unknown): Promise<ApiResult<FeedbackDetail>> {
       const parsed = updateFeedbackRequestSchema.safeParse(input);
-      if (!parsed.success) return { error: parsed.error.message, status: 400 };
+      if (!parsed.success) return validationError(parsed.error);
       const feedback = await store.updateFeedback(id, parsed.data);
       if (!feedback) return { error: "Feedback not found.", status: 404 };
       return { data: feedback, status: 200 };
     },
+  };
+}
+
+function validationError(error: Parameters<typeof formatZodIssues>[0]): ApiResult<never> {
+  return {
+    error: firstZodIssueMessage(error),
+    issues: formatZodIssues(error),
+    status: 400,
   };
 }
 
