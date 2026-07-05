@@ -1,0 +1,20 @@
+{
+  "name": "feedy",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Agent-ready product feedback infrastructure.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b",
+    "export:public": "node scripts/export-public.mjs",
+    "typecheck": "tsc -b --pretty false",
+    "smoke": "npm run typecheck"
+  },
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
