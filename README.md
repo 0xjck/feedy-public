@@ -7,9 +7,9 @@
 
 # Feedy
 
-Feedy is open-source, agent-ready feedback infrastructure for software builders.
+Feedy is an open-source product feedback system for builders who want feedback to move directly into AI-assisted development.
 
-It helps products capture rich user feedback and turn it into structured context that humans can review and coding agents can use to investigate, prioritize, and execute changes quickly.
+The goal is to make rich feedback easy to add to a product, then make that feedback immediately usable by coding agents. People can review, triage, and prioritize the queue, but Feedy is optimized for agents to pick up feedback, understand the context, and help execute fixes or improvements in minutes rather than days.
 
 ## Why
 
@@ -25,18 +25,18 @@ The core loop:
 
 ## Current Status
 
-Feedy is at the contract-first skeleton stage.
+Feedy is at the contract-first reference implementation stage.
 
 This repository currently includes:
 
 - Shared TypeScript/Zod contracts.
 - Initial Postgres migration.
 - Basic intake and agent-context example.
-- Copyable reference UI example.
+- Copyable reference UI example for the core feedback surfaces.
 - Storage guidance.
 - Quickstart docs.
 
-It is not yet a complete hosted app or polished admin UI.
+It is not yet a complete hosted app, but the repository is intended to make the core feedback capability easy to inspect, copy, and integrate.
 
 ## Quickstart
 
