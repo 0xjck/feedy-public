@@ -1,6 +1,6 @@
 # Feedy Public Export Manifest
 
-Generated: 2026-07-05T09:19:15.586Z
+Generated: 2026-07-05T09:39:04.391Z
 
 ## Files
 
@@ -17,6 +17,10 @@ Generated: 2026-07-05T09:19:15.586Z
 - docs/quickstart.md
 - docs/specs/implementation-model.md
 - docs/storage.md
+- examples/api-adapter/README.md
+- examples/api-adapter/package.json
+- examples/api-adapter/src/index.ts
+- examples/api-adapter/tsconfig.json
 - examples/basic-intake/README.md
 - examples/basic-intake/package.json
 - examples/basic-intake/src/index.ts

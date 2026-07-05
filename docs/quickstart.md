@@ -1,8 +1,8 @@
 # Feedy Quickstart
 
-Feedy is currently at the contract-first skeleton stage.
+Feedy is currently at the contract-first reference implementation stage.
 
-The first useful path is to inspect the contracts, migration, and basic intake example.
+The first useful path is to inspect the contracts, migration, API adapter, and UI reference.
 
 ## Install
 
@@ -21,15 +21,19 @@ npm run typecheck
 - `packages/contracts/src/index.ts`: shared feedback contracts.
 - `packages/db/migrations/0001_feedback_core.sql`: initial Postgres schema.
 - `examples/basic-intake/src/index.ts`: minimal intake and agent-context example.
+- `examples/api-adapter/src/index.ts`: framework-agnostic server boundary for real integrations.
+- `examples/ui-reference/src`: copyable widget, annotation, queue, detail, insights, and agent context UI.
 - `docs/storage.md`: storage configuration guidance.
 
 ## Current Scope
 
-This is not yet the full reference app. It is the first implementable foundation:
+This is not yet a hosted app. It is the first implementable foundation:
 
 - typed feedback model
 - database shape
 - example storage interface
 - example agent-readable context
+- copyable API handler surface
+- copyable UI surfaces
 
-The next slice should add a real Postgres store and a small HTTP intake endpoint.
+The next slice should add a real Postgres implementation of the `FeedyStore` interface and framework-specific route examples.

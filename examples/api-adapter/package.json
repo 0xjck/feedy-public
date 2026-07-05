@@ -1,0 +1,19 @@
+{
+  "name": "@feedy/example-api-adapter",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Framework-agnostic Feedy API and storage adapter example.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -b --pretty false"
+  },
+  "dependencies": {
+    "@feedy/contracts": "0.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

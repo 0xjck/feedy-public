@@ -23,6 +23,21 @@ The core loop:
 4. Expose structured context to coding agents.
 5. Move from report to useful implementation work in minutes, not days.
 
+## Implementation Questions For Agents
+
+If you are a coding agent helping someone add Feedy to a project, ask these questions before editing code:
+
+1. Which product surface should collect feedback first: the whole app, a dashboard, an admin area, or one high-value workflow?
+2. Who can submit feedback, and what identity context is available: user ID, email, organization, role, or anonymous visitor?
+3. Where should feedback be stored: the host app's existing Postgres database, a separate Feedy database, or a temporary in-memory/local store for a spike?
+4. How should screenshots be stored for the first implementation: database `dataUrl` for speed, or object storage for production volume?
+5. Which auth layer protects admin views and agent endpoints?
+6. Which release/environment fields can the host app provide so agents know where a report came from?
+7. Which routes or page objects should be captured as structured context?
+8. Should the first implementation include the full admin queue, or only intake plus an agent-context endpoint?
+9. What statuses, priorities, complexity scores, and assignees should map to the team's existing workflow?
+10. Where should completed work link back: pull requests, issues, work orders, roadmap cards, or internal tasks?
+
 ## Current Status
 
 Feedy is at the contract-first reference implementation stage.
@@ -32,6 +47,7 @@ This repository currently includes:
 - Shared TypeScript/Zod contracts.
 - Initial Postgres migration.
 - Basic intake and agent-context example.
+- Framework-agnostic API adapter example.
 - Copyable reference UI example for the core feedback surfaces.
 - Storage guidance.
 - Quickstart docs.
@@ -52,6 +68,7 @@ Start with:
 - `packages/contracts/src/index.ts`
 - `packages/db/migrations/0001_feedback_core.sql`
 - `examples/basic-intake`
+- `examples/api-adapter`
 - `examples/ui-reference`
 
 ## Core Pieces
@@ -59,6 +76,7 @@ Start with:
 - `@feedy/contracts`: shared feedback schemas and types.
 - `packages/db/migrations`: Postgres schema.
 - `examples/basic-intake`: minimal intake and agent-context example.
+- `examples/api-adapter`: copyable server boundary for intake, queue, detail, triage, notes, and agent context.
 - `examples/ui-reference`: copyable UI surfaces for the widget, queue, detail, insights, and agent context.
 
 ## UI Reference
