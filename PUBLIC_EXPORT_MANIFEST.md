@@ -1,6 +1,6 @@
 # Feedy Public Export Manifest
 
-Generated: 2026-07-05T08:34:26.999Z
+Generated: 2026-07-05T08:53:48.516Z
 
 ## Files
 
@@ -21,6 +21,21 @@ Generated: 2026-07-05T08:34:26.999Z
 - examples/basic-intake/package.json
 - examples/basic-intake/src/index.ts
 - examples/basic-intake/tsconfig.json
+- examples/ui-reference/README.md
+- examples/ui-reference/index.html
+- examples/ui-reference/package.json
+- examples/ui-reference/src/App.tsx
+- examples/ui-reference/src/components/AgentContextPanel.tsx
+- examples/ui-reference/src/components/Badge.tsx
+- examples/ui-reference/src/components/FeedbackDetail.tsx
+- examples/ui-reference/src/components/FeedbackInsights.tsx
+- examples/ui-reference/src/components/FeedbackQueue.tsx
+- examples/ui-reference/src/components/FeedbackWidget.tsx
+- examples/ui-reference/src/components/ScreenshotAnnotator.tsx
+- examples/ui-reference/src/data/seedFeedback.ts
+- examples/ui-reference/src/main.tsx
+- examples/ui-reference/src/styles.css
+- examples/ui-reference/tsconfig.json
 - package-lock.json
 - package.json
 - packages/contracts/package.json

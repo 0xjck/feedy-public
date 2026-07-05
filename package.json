@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc -b",
+    "dev:ui": "npm run dev -w @feedy/example-ui-reference",
     "export:public": "node scripts/export-public.mjs",
     "typecheck": "tsc -b --pretty false",
     "smoke": "npm run typecheck"
@@ -15,6 +16,7 @@
     "examples/*"
   ],
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
     "typescript": "^5.5.4"
   }
 }

@@ -32,6 +32,7 @@ This repository currently includes:
 - Shared TypeScript/Zod contracts.
 - Initial Postgres migration.
 - Basic intake and agent-context example.
+- Copyable reference UI example.
 - Storage guidance.
 - Quickstart docs.
 
@@ -51,12 +52,24 @@ Start with:
 - `packages/contracts/src/index.ts`
 - `packages/db/migrations/0001_feedback_core.sql`
 - `examples/basic-intake`
+- `examples/ui-reference`
 
 ## Core Pieces
 
 - `@feedy/contracts`: shared feedback schemas and types.
 - `packages/db/migrations`: Postgres schema.
 - `examples/basic-intake`: minimal intake and agent-context example.
+- `examples/ui-reference`: copyable UI surfaces for the widget, queue, detail, insights, and agent context.
+
+## UI Reference
+
+Run the reference UI locally:
+
+```bash
+npm run dev:ui
+```
+
+The UI is intentionally copyable example code, not a finished component library.
 
 ## Screenshots
 
@@ -66,25 +79,41 @@ Early UI references:
 
 ![Feedy feedback widget modal](docs/assets/screenshots/widget-empty.png)
 
+Code: [`examples/ui-reference/src/components/FeedbackWidget.tsx`](examples/ui-reference/src/components/FeedbackWidget.tsx)
+
 ### Feedback Widget With Screenshot
 
 ![Feedy feedback widget with screenshot](docs/assets/screenshots/widget.png)
+
+Code: [`examples/ui-reference/src/components/FeedbackWidget.tsx`](examples/ui-reference/src/components/FeedbackWidget.tsx)
 
 ### Screenshot Annotation
 
 ![Feedy screenshot annotation mode](docs/assets/screenshots/annotation.png)
 
+Code: [`examples/ui-reference/src/components/ScreenshotAnnotator.tsx`](examples/ui-reference/src/components/ScreenshotAnnotator.tsx)
+
 ### Admin Queue
 
 ![Feedy admin queue](docs/assets/screenshots/queue.png)
+
+Code: [`examples/ui-reference/src/components/FeedbackQueue.tsx`](examples/ui-reference/src/components/FeedbackQueue.tsx)
 
 ### Feedback Detail
 
 ![Feedy feedback detail](docs/assets/screenshots/detail.png)
 
+Code: [`examples/ui-reference/src/components/FeedbackDetail.tsx`](examples/ui-reference/src/components/FeedbackDetail.tsx)
+
 ### Insights
 
 ![Feedy insights](docs/assets/screenshots/insights.png)
+
+Code: [`examples/ui-reference/src/components/FeedbackInsights.tsx`](examples/ui-reference/src/components/FeedbackInsights.tsx)
+
+### Agent Context
+
+Code: [`examples/ui-reference/src/components/AgentContextPanel.tsx`](examples/ui-reference/src/components/AgentContextPanel.tsx)
 
 These are early reference screenshots. Final Feedy screenshots should use Feedy branding and seeded demo data as the reference app matures.
 
