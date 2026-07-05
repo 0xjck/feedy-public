@@ -23,6 +23,7 @@ npm run typecheck
 - `examples/basic-intake/src/index.ts`: minimal intake and agent-context example.
 - `examples/api-adapter/src/index.ts`: framework-agnostic server boundary for real integrations.
 - `examples/ui-reference/src`: copyable widget, annotation, queue, detail, insights, and agent context UI.
+- `docs/recipes/next-shadcn.md`: recommended path for embedded Next.js/shadcn-style implementations.
 - `docs/storage.md`: storage configuration guidance.
 
 ## Current Scope

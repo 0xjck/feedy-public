@@ -64,8 +64,10 @@ This repository currently includes:
 - Basic intake and agent-context example.
 - Framework-agnostic API adapter example.
 - Copyable reference UI example for the core feedback surfaces.
+- Next.js + shadcn-style integration recipe.
 - Storage guidance.
 - Quickstart docs.
+- Public changelog.
 
 It is not yet a complete hosted app, but the repository is intended to make the core feedback capability easy to inspect, copy, and integrate.
 
@@ -79,7 +81,9 @@ npm run typecheck
 Start with:
 
 - `docs/quickstart.md`
+- `docs/recipes/next-shadcn.md`
 - `docs/storage.md`
+- `CHANGELOG.md`
 - `packages/contracts/src/index.ts`
 - `packages/db/migrations/0001_feedback_core.sql`
 - `examples/basic-intake`
@@ -93,6 +97,7 @@ Start with:
 - `examples/basic-intake`: minimal intake and agent-context example.
 - `examples/api-adapter`: copyable server boundary for intake, queue, detail, triage, notes, and agent context.
 - `examples/ui-reference`: copyable UI surfaces for the widget, queue, detail, insights, and agent context.
+- `docs/recipes/next-shadcn.md`: embedded implementation path for existing Next.js apps using shadcn-style primitives.
 
 ## UI Reference
 
