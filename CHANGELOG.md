@@ -23,3 +23,4 @@ Feedy is early-stage, so this changelog tracks implementation-shape changes rath
 - Existing Postgres infrastructure is separate from having a runtime DB client available to app routes.
 - First-pass integrations can skip screenshots while preserving schema space for screenshots and annotations.
 - Feedy should use the host app's existing admin auth instead of owning authentication in embedded mode.
+- Widget implementations can choose compact panel, modal reference widget, or full evidence widget, but compact text-only panels should be treated as first-pass slices rather than the full Feedy interaction model.

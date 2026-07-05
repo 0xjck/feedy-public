@@ -53,6 +53,16 @@ For an existing product, the simplest useful implementation is usually embedded,
 
 No separate Postgres service is needed when the host project already owns one.
 
+## Widget Variants
+
+Feedy does not require one fixed feedback panel.
+
+- Compact panel: good for proving intake, storage, and admin review quickly.
+- Modal reference widget: the default Feedy model, with stronger feedback type, evidence, screenshot, and annotation affordances.
+- Full evidence widget: modal widget plus screenshot capture, annotation mode, numbered overlays, notes, preview, and re-annotate flow.
+
+Agents should treat a compact text-only panel as a first implementation slice, not as a replacement for the Feedy reference interaction, unless the user explicitly chooses that tradeoff.
+
 ## Current Status
 
 Feedy is at the contract-first reference implementation stage.

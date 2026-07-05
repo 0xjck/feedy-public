@@ -136,10 +136,61 @@ Start with shadcn-light components:
 - Style fallback controls with the host app's tokens and utility classes.
 - Avoid adding a full component dependency just for the first pass.
 
+### Widget Variants
+
+Feedy supports more than one intake UI. Choose deliberately.
+
+#### Compact Panel
+
+Use this when the first goal is to prove the database/API/admin loop.
+
+Characteristics:
+
+- Floating launcher or sidebar item.
+- Small inline or side panel.
+- Text-only submission.
+- Optional type selector.
+- No screenshot capture.
+- No annotation mode.
+
+Tradeoff: fastest to implement, but it is not the full Feedy reference interaction. It can feel like a generic contact form if left as the final design.
+
+#### Modal Reference Widget
+
+Use this as the default Feedy product model.
+
+Characteristics:
+
+- Floating launcher opens a modal overlay.
+- Segmented feedback type selector with icons.
+- Description and optional video link.
+- Screenshot/evidence language even if screenshot capture is disabled in the first pass.
+- Clear path to annotation mode and annotation notes.
+- Submission includes route, environment, release, browser, and identity context.
+
+Tradeoff: slightly more UI work, but it preserves the Feedy promise: rich feedback that coding agents can act on.
+
+#### Full Evidence Widget
+
+Use this after the core loop is stable.
+
+Characteristics:
+
+- Modal reference widget.
+- Screenshot capture.
+- Element annotation mode.
+- Numbered annotation overlays.
+- Annotation notes.
+- Screenshot preview and re-annotate flow.
+
+Tradeoff: highest-value context for agents, but it has more browser and storage edge cases.
+
+Agents should not replace the modal/evidence-oriented Feedy model with a thin custom form unless the user explicitly chooses the compact first-pass tradeoff.
+
 Recommended first UI scope:
 
 - Floating feedback button or simple nav item.
-- Text-only feedback panel.
+- Compact text-only panel or modal reference widget with screenshot capture disabled.
 - Admin feedback queue.
 - Admin feedback detail or inline row expansion.
 - Agent-context JSON/payload view.

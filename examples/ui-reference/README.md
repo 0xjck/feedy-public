@@ -26,3 +26,15 @@ npm run dev:ui
 This is reference UI, not a finished component library.
 
 Start here when you want to understand how the Feedy contracts map to visible product surfaces. Extract reusable packages only after the reference app workflow is stable.
+
+## Widget Variants
+
+The reference widget is intentionally modal and evidence-oriented. That is the default Feedy interaction model because coding agents need more than a short text report.
+
+Implementation variants:
+
+- Compact panel: fastest first pass, text-only, useful for proving the DB/API/admin loop.
+- Modal reference widget: default Feedy UX, with type selector, description, evidence language, and room for screenshot/annotation context.
+- Full evidence widget: modal widget plus screenshot capture, annotation mode, numbered overlays, notes, preview, and re-annotate flow.
+
+If you start with a compact panel, treat it as an implementation slice rather than the final Feedy model.
