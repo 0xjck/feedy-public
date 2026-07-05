@@ -29,14 +29,29 @@ If you are a coding agent helping someone add Feedy to a project, ask these ques
 
 1. Which product surface should collect feedback first: the whole app, a dashboard, an admin area, or one high-value workflow?
 2. Who can submit feedback, and what identity context is available: user ID, email, organization, role, or anonymous visitor?
-3. Where should feedback be stored: the host app's existing Postgres database, a separate Feedy database, or a temporary in-memory/local store for a spike?
-4. How should screenshots be stored for the first implementation: database `dataUrl` for speed, or object storage for production volume?
-5. Which auth layer protects admin views and agent endpoints?
-6. Which release/environment fields can the host app provide so agents know where a report came from?
-7. Which routes or page objects should be captured as structured context?
-8. Should the first implementation include the full admin queue, or only intake plus an agent-context endpoint?
-9. What statuses, priorities, complexity scores, and assignees should map to the team's existing workflow?
-10. Where should completed work link back: pull requests, issues, work orders, roadmap cards, or internal tasks?
+3. Does the host app already have Postgres infrastructure, and do its API/server routes already have a runtime database client they can use?
+4. Should Feedy tables be embedded in the host app's existing Postgres database, or is there a real reason to use a separate Feedy database?
+5. Should the first pass skip screenshots, store screenshot `dataUrl` values in Postgres for speed, or use object storage from day one?
+6. Which auth layer protects admin views and agent endpoints?
+7. Can public or anonymous users submit feedback, and should signed-in users attach richer identity context when available?
+8. Which release/environment fields can the host app provide so agents know where a report came from?
+9. Which routes or page objects should be captured as structured context?
+10. Should the first implementation include the full admin queue, or only intake plus an agent-context endpoint?
+11. What statuses, priorities, complexity scores, and assignees should map to the team's existing workflow?
+12. Where should completed work link back: pull requests, issues, work orders, roadmap cards, or internal tasks?
+
+## Recommended First Integration
+
+For an existing product, the simplest useful implementation is usually embedded, not standalone:
+
+1. Add the Feedy migration to the host app's existing Postgres database.
+2. Add or reuse a runtime Postgres client for the host app's server/API routes.
+3. Create feedback intake and admin read/update routes in the host app.
+4. Allow anonymous/public submissions if the product needs them, but attach signed-in user and organization context when available.
+5. Gate the queue, detail, notes, and agent-context routes with the host app's existing admin or super-admin authorization.
+6. Start without screenshots or with database screenshot storage, then move screenshots to object storage when volume requires it.
+
+No separate Postgres service is needed when the host project already owns one.
 
 ## Current Status
 

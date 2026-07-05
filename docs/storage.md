@@ -58,10 +58,18 @@ Object mode stores an object key or URL on the feedback row and stores the image
 
 For an existing product, start by embedding the Feedy tables in the product's Postgres database.
 
+There are two separate checks:
+
+1. Infrastructure/schema: does the project already run Postgres and have a migration system?
+2. Runtime access: do the app's server/API routes already have a Postgres client they can use to read and write Feedy rows?
+
+If the first answer is yes and the second is no, do not add another Postgres service. Add a runtime database client for the application layer and point it at the existing database.
+
 Recommended defaults:
 
 - Use the host app's existing admin auth for Feedy admin routes.
 - Pass host user and organization IDs as external IDs.
 - Keep Feedy contracts independent from host-specific user/org tables.
-- Start with database screenshot storage.
+- Start without screenshots or with database screenshot storage for the first pass.
 - Move screenshots to object storage before production volume grows.
+- Allow public/anonymous intake where useful, but attach signed-in identity context when it exists.

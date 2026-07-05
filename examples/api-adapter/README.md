@@ -4,6 +4,17 @@ This example shows the smallest useful server boundary for adding Feedy to an ex
 
 It is framework-agnostic on purpose. A host app can call these handlers from Next.js Route Handlers, Express, Fastify, Hono, Rails-backed TypeScript clients, or any other HTTP layer.
 
+## Existing App Model
+
+Prefer embedding Feedy into the host app:
+
+- Use the host app's existing Postgres service when it already has one.
+- Add Feedy tables through the host app's migration flow.
+- Add a runtime DB client for API/server routes if the app does not already have one.
+- Keep intake routes available to the users who need to submit feedback.
+- Protect queue, detail, notes, update, and agent-context routes with the host app's admin authorization.
+- Skip screenshots for the first pass if needed; the API shape can add screenshot storage later without changing the queue/detail model.
+
 ## Operations
 
 - `createFeedback`: validate widget submissions and store feedback.
