@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/feedy-mark-dark.svg">
+    <img alt="Feedy" src="docs/assets/feedy-mark-light.svg" width="72" height="72">
+  </picture>
+</p>
+
 # Feedy
 
 Feedy is open-source, agent-ready feedback infrastructure for software builders.
@@ -50,6 +57,32 @@ Start with:
 - `@feedy/contracts`: shared feedback schemas and types.
 - `packages/db/migrations`: Postgres schema.
 - `examples/basic-intake`: minimal intake and agent-context example.
+
+## Screenshots
+
+Early UI references:
+
+### Feedback Widget
+
+![Feedy feedback widget](docs/assets/screenshots/widget.png)
+
+### Screenshot Annotation
+
+![Feedy screenshot annotation mode](docs/assets/screenshots/annotation.png)
+
+### Admin Queue
+
+![Feedy admin queue](docs/assets/screenshots/queue.png)
+
+### Feedback Detail
+
+![Feedy feedback detail](docs/assets/screenshots/detail.png)
+
+### Insights
+
+![Feedy insights](docs/assets/screenshots/insights.png)
+
+These are early reference screenshots. Final Feedy screenshots should use Feedy branding and seeded demo data as the reference app matures.
 
 ## Storage
 

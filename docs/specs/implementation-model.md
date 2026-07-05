@@ -18,6 +18,8 @@ A runnable app that proves the feedback loop end to end:
 - notes and activity
 - agent-readable context endpoint
 
+The reference app should include UI from the start. Feedy is easier to understand when contributors can see and use the feedback widget, queue, detail view, and agent context flow.
+
 ### 2. Integration Recipes
 
 Guides for adding Feedy capabilities to an existing product:
@@ -38,6 +40,31 @@ Packages should be extracted as the reference app stabilizes:
 - `@feedy/server`
 - `@feedy/widget`
 - optional `@feedy/admin`
+
+The admin UI should not be extracted first. Start with a clear reference UI, prove the workflow, then decide which pieces should become reusable packages.
+
+## UI Strategy
+
+Feedy should provide UI as part of the open-source project.
+
+Initial public UI should include:
+
+- feedback widget
+- screenshot annotation flow
+- admin queue
+- feedback detail
+- notes and activity
+- insights
+- agent context view
+
+Implementation order:
+
+1. Build UI inside the standalone reference app.
+2. Keep components simple and easy to copy.
+3. Document the data contracts behind each surface.
+4. Extract reusable packages only after the surfaces are stable.
+
+This avoids over-abstracting too early while still giving adopters usable UI.
 
 ## First Milestone
 

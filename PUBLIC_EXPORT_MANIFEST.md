@@ -1,11 +1,18 @@
 # Feedy Public Export Manifest
 
-Generated: 2026-07-05T08:05:18.088Z
+Generated: 2026-07-05T08:24:43.216Z
 
 ## Files
 
 - .gitignore
 - README.md
+- docs/assets/feedy-mark-dark.svg
+- docs/assets/feedy-mark-light.svg
+- docs/assets/screenshots/annotation.png
+- docs/assets/screenshots/detail.png
+- docs/assets/screenshots/insights.png
+- docs/assets/screenshots/queue.png
+- docs/assets/screenshots/widget.png
 - docs/quickstart.md
 - docs/specs/implementation-model.md
 - docs/storage.md
