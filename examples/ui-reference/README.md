@@ -38,3 +38,16 @@ Implementation variants:
 - Full evidence widget: modal widget plus screenshot capture, annotation mode, numbered overlays, notes, preview, and re-annotate flow.
 
 If you start with a compact panel, treat it as an implementation slice rather than the final Feedy model.
+
+## Capture Behavior
+
+The reference widget implements the core full-evidence behavior:
+
+- modal hides while annotation mode is active
+- annotation mode removes the modal scrim so the page remains inspectable
+- hover preview uses the same target-resolution path as click selection
+- target resolution prefers `data-feedback-target`, then controls, ARIA/component slots, and meaningful containers
+- screenshot capture uses `modern-screenshot` first and `html2canvas` as a fallback
+- feedback UI is excluded from captured screenshots
+- screenshots are downscaled/compressed before submit
+- annotation labels are sanitized with `sanitizeFeedbackAnnotationLabel`

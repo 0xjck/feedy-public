@@ -14,6 +14,7 @@
   },
   "scripts": {
     "build": "tsc -b",
+    "test": "npm run build && node --test dist/index.test.js",
     "typecheck": "tsc -b --pretty false"
   },
   "dependencies": {

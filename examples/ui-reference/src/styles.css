@@ -365,6 +365,16 @@ h3 {
   min-height: 280px;
 }
 
+.mini-screenshot-bitmap {
+  display: block;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: top left;
+  position: absolute;
+  width: 100%;
+}
+
 .mini-topbar,
 .mock-app-bar {
   border-bottom: 1px solid var(--rule);
@@ -418,6 +428,11 @@ h3 {
   width: 24px;
 }
 
+.annotation-preview-box {
+  border-style: dashed;
+  pointer-events: none;
+}
+
 .annotation-target-one {
   height: 98px;
   left: 56px;
@@ -441,6 +456,21 @@ h3 {
   position: absolute;
   transform: translateX(-50%);
   z-index: 4;
+}
+
+.annotation-overlay-root {
+  inset: 0;
+  position: absolute;
+  z-index: 4;
+}
+
+.annotation-capture-layer {
+  background: transparent;
+  border: 0;
+  cursor: crosshair;
+  inset: 0;
+  position: absolute;
+  width: 100%;
 }
 
 .annotator-toolbar {
@@ -471,6 +501,32 @@ h3 {
   height: 24px;
   justify-content: center;
   width: 24px;
+}
+
+.screenshot-status,
+.feedback-error {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+
+.feedback-error {
+  color: #9a2400;
+  padding: 0 20px 12px;
+}
+
+.spin {
+  animation: feedy-spin 0.9s linear infinite;
+}
+
+@keyframes feedy-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .chart-row {

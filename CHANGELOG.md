@@ -17,6 +17,8 @@ Feedy is early-stage, so this changelog tracks implementation-shape changes rath
 - Next.js + shadcn-style integration recipe for embedded host-app implementations.
 - Widget capture and annotation recipe covering screenshot capture, hit testing, hover preview, payload compression, validation issue paths, and admin evidence display.
 - Contract helpers for sanitizing annotation labels and formatting Zod validation issue paths.
+- UI reference widget now implements real screenshot capture, overlay-excluding capture, hover preview, target resolution, screenshot compression, and contract-safe annotation labels.
+- Node test coverage for contract helper behavior and validation issue paths.
 - Public export script for publishing a curated subset of the private working repository.
 
 ### Clarified

@@ -44,7 +44,7 @@ export function App() {
       createdAt: now,
       description: submission.description,
       environment: "production",
-      hasScreenshot: submission.annotations.length > 0,
+      hasScreenshot: Boolean(submission.screenshotDataUrl),
       id,
       isRoadmapItem: false,
       notes: [],
@@ -52,6 +52,12 @@ export function App() {
       pageLabel: "Project settings",
       source: "platform",
       status: "new",
+      screenshot: submission.screenshotDataUrl
+        ? {
+            dataUrl: submission.screenshotDataUrl,
+            storageMode: "database",
+          }
+        : undefined,
       technicalInfo: {
         capturedAt: now,
         timezone: "Europe/Oslo",

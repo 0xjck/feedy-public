@@ -1,6 +1,6 @@
 # Feedy Public Export Manifest
 
-Generated: 2026-07-05T14:00:52.497Z
+Generated: 2026-07-06T05:42:23.692Z
 
 ## Files
 
@@ -46,6 +46,7 @@ Generated: 2026-07-05T14:00:52.497Z
 - package-lock.json
 - package.json
 - packages/contracts/package.json
+- packages/contracts/src/index.test.ts
 - packages/contracts/src/index.ts
 - packages/contracts/tsconfig.json
 - packages/db/migrations/0001_feedback_core.sql
